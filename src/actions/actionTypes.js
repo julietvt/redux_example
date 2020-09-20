@@ -12,6 +12,12 @@ const ACTION_TYPES = {
   LOGIN_USER_REQUEST: Symbol(),
   LOGIN_USER_SUCCESS: Symbol(),
   LOGIN_USER_ERROR: Symbol(),
+
+  GET_TASK_ACTION: Symbol(),
+
+  GET_TASK_REQUEST: Symbol(),
+  GET_TASK_SUCCESS: Symbol(),
+  GET_TASK_ERROR: Symbol(),
 };
 
 export default ACTION_TYPES;

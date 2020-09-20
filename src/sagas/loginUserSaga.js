@@ -1,7 +1,7 @@
 import { put } from 'redux-saga/effects';
 import ACTION_TYPES from '../actions/actionTypes';
 
-export function* loginUserSaga() {
+export function* loginUserSaga(action) {
   try {
     const { users } = yield fetch('http://localhost:3000/api/sign_in', {
       method: 'POST',
