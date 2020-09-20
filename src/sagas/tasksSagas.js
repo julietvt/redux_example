@@ -1,7 +1,7 @@
 import { put } from 'redux-saga/effects';
 import ACTION_TYPE from '../actions/actionTypes';
 
-export function* getTasksSags(action) {
+export function* getTasksSagas(action) {
   yield put({
     type: ACTION_TYPE.GET_TASK_REQUEST,
   });
