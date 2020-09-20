@@ -1,8 +1,36 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ACTION_TYPES from '../../actions/actionTypes';
 
-class UsersList extends Component {
+const UsersList = (props) => {
+  const { isFetching, users, error, getUsersRequest } = props;
+
+  const loadUsers = () => {
+    getUsersRequest();
+  };
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+  if (error) {
+    return <h1>Error</h1>;
+  }
+  if (isFetching) {
+    return <h1>LOAD...</h1>;
+  }
+  return (
+    <>
+      <ul>
+        {users.map((item) => (
+          <li key={item.id}>{`${item.firstName} ${item.lastName}`}</li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+/*
   loadUsers = () => {
     this.props.getUsersRequest();
     fetch('../../users.json')
@@ -34,7 +62,7 @@ class UsersList extends Component {
     );
   }
 }
-
+*/
 const mapStateToProps = (state) => {
   const { usersState } = state;
   return usersState;
